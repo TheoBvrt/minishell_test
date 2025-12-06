@@ -26,4 +26,16 @@ typedef struct s_token
 	int		type;
 }	t_token;
 
+typedef struct s_minishell
+{
+
+}	t_minishell;
+
+//Parser/Tokenizer
+int	tokenizer(char *cmd_line, t_minishell *minishell);
+
+//Utils
+int	is_wspace(int c);
+int	is_separator(char *str, int	index);
+
 #endif

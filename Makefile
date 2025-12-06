@@ -1,11 +1,14 @@
 NAME = minishell
 
-SRCS =	./srcs/main.c \
+SRCS = 	$(wildcard srcs/*.c) \
+		$(wildcard srcs/utils/*.c) \
+		$(wildcard srcs/parser/tokenizer/*.c)
+
 
 OBJS = ${SRCS:.c=.o}
 CC = gcc
 RM = rm -f
-CFLAGS =
+CFLAGS = -Iheaders
 
 all : ${NAME}
 

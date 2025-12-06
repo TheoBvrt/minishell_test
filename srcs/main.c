@@ -1,11 +1,7 @@
-#include "../headers/mini.h"
+#include "mini.h"
 
-
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	char	cmd[] = "( 25 + ( 20 - 30 ) )";
-	char	**tokens = ft_split(cmd, ' ');
-
-	printf("%s", tokens[1]);
+	tokenizer(argv[1], NULL);
 	return (0);
 }
