@@ -20,6 +20,10 @@
 # define APPEND 9
 #endif
 
+#ifndef ERROR_CODE
+# define MALLOC_ERROR -20;
+#endif
+
 typedef struct s_token
 {
 	char	*token;
@@ -36,6 +40,6 @@ int	tokenizer(char *cmd_line, t_minishell *minishell);
 
 //Utils
 int	is_wspace(int c);
-int	is_separator(char *str, int	index);
+int	is_separator(char *str, int index);
 
 #endif

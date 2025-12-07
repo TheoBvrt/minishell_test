@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 18:35:07 by theo              #+#    #+#             */
-/*   Updated: 2025/12/06 22:53:50 by theo             ###   ########.fr       */
+/*   Updated: 2025/12/07 15:36:42 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	is_wspace(int c)
 		return (0);
 }
 
-int	is_separator(char *str, int	index)
+int	is_separator(char *str, int index)
 {
 	if (is_wspace(str[index]))
 		return (1);

@@ -2,6 +2,6 @@
 
 int	main(int argc, char *argv[])
 {
-	tokenizer(argv[1], NULL);
+	tokenizer("\"\"bonjour'h'\"\"  'y && s'\"a\" y'a\"  '' a\"\"'|bonjour", NULL);
 	return (0);
 }
