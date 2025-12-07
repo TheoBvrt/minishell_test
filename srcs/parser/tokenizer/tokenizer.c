@@ -6,7 +6,7 @@
 /*   By: thbouver <thbouver@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 18:08:35 by theo              #+#    #+#             */
-/*   Updated: 2025/12/07 18:10:21 by thbouver         ###   ########.fr       */
+/*   Updated: 2025/12/07 18:14:30 by thbouver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ static int	string_cleaner(char *string, t_minishell *minishell)
 		return (-1);
 	while (string[index])
 	{
-		if (string[index] == '"' || string[index] == 39)
-		{
-			if (string[index] == '"' && in_quotes == 0)
-				in_dquotes = !in_dquotes;
-			if (string[index] == 39 && in_dquotes == 0)
-				in_quotes = !in_quotes;
-		}
+		if (string[index] == '"' && in_quotes == 0)
+			in_dquotes = !in_dquotes;
+		else if (string[index] == 39 && in_dquotes == 0)
+			in_quotes = !in_quotes;
 		if ((string[index] == '"' && in_quotes == 1)
 			|| (string[index] == 39 && in_dquotes == 1)
 			|| string[index] != '"' && string[index] != 39)
@@ -45,7 +42,7 @@ static int	string_cleaner(char *string, t_minishell *minishell)
 		}
 		index ++;
 	}
-	ft_printf("BEFORE : {%s}, AFTER : {%s}\n", string, string_token);
+	ft_printf("BEFORE : {%s},     ->      AFTER : {%s}\n", string, string_token);
 	return (1);
 }
 
