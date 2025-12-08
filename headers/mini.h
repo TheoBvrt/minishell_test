@@ -7,22 +7,22 @@
 # include "stdlib.h"
 # include "fcntl.h"
 
-#ifndef ARGS_TYPE
-# define AND 0
-# define OR 1
-# define PIPE 2
-# define OPEN_BRACKET 3
-# define CLOSE_BRACKET 4
-# define STRING 5
-# define REDIR_IN 6
-# define REDIR_OUT 7
-# define HERE_DOC 8
-# define APPEND 9
-#endif
+typedef struct s_token t_token;
 
-#ifndef ERROR_CODE
-# define MALLOC_ERROR -20;
-#endif
+typedef enum e_token_type
+{
+	AND = 0,
+	OR = 1,
+	PIPE = 2,
+	OPEN_BRACKET = 3,
+	CLOSE_BRACKET = 4,
+	HERE_DOC = 5,
+	APPEND = 6,
+	REDIR_IN = 7,
+	REDIR_OUT = 8,
+	STRING = 9,
+	TOKEN_ERROR = 10
+} t_token_type;
 
 typedef struct s_token
 {
@@ -30,9 +30,12 @@ typedef struct s_token
 	int		type;
 }	t_token;
 
+
+
 typedef struct s_minishell
 {
-
+	char	*input;
+	t_list	*tokens_list;
 }	t_minishell;
 
 //Parser/Tokenizer
@@ -41,5 +44,8 @@ int	tokenizer(char *cmd_line, t_minishell *minishell);
 //Utils
 int	is_wspace(int c);
 int	is_separator(char *str, int index);
+int	is_operator(char *str, int index);
+void	free_token_list(t_list **head);
+void	print_token(t_minishell *minishell);
 
 #endif
