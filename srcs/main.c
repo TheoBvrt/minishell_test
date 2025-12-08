@@ -6,6 +6,6 @@ int	main(int argc, char *argv[])
 
 	minishell.tokens_list = NULL;
 
-	tokenizer("&& || | () < << > >>", &minishell);
+	tokenizer("&& || | (hello && bonj'\"hey\"'our) < << > >>", &minishell);
 	return (0);
 }
